@@ -1,0 +1,11 @@
+@model AlbumApp.Entities.Album
+
+<div>
+    <h2>@Model.Title</h2>
+    <p>Artist: @Model.Artist</p>
+    <p>Rating: @Model.Rating</p>
+    <p>Songs: @Model.Song</p>
+    <a asp-action="Index">Back to List</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Create">Add New Album</a>
+</div>

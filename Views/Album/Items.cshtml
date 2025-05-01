@@ -1,0 +1,27 @@
+﻿@model IEnumerable<AlbumApp.Entities.Album>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Rating</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var album in Model.OrderByDescending(a => a.Rating))
+        {
+            <tr>
+                <td>@album.DisplayText</td>
+                <td>@album.Artist</td>
+                <td>@album.Rating</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@album.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@album.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Create">Add New Album</a>
